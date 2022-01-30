@@ -1,10 +1,3 @@
-//
-//  Model.swift
-//  Parse
-//
-//  Created by Maxim M on 30.01.2022.
-//
-
 import Foundation
 
 struct Lesson: Decodable {  //подписываем на протокол Decodable
