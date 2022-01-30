@@ -5,7 +5,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let urlString = "https://icodeschool.ru/json1.php"
+        let urlString = "https://icodeschool.ru/json2.php"
         guard let url = URL(string: urlString) else { return }      //получваем url с json
         
         URLSession.shared.dataTask(with: url) { data, response, error in
@@ -27,7 +27,7 @@ class ViewController: UIViewController {
                 decoder.dateDecodingStrategy = .formatted(dateFormatter)        //парсим правильный формат
                 
                 let lessons = try decoder.decode([Lesson].self, from: data)       // в type: задаем шаблон того что мы парсим, чтобы swift понимал, что лежит в этом json и правильно распарсил. Шаблон для парсинга задаем в файле Model
-                print(lessons.first?.date)      //обращаемся к необходимым данным и выводим их
+                print(lessons.first?.comments?.first?.user.name)      //обращаемся к необходимым данным и выводим их
             } catch {
                 print(error)
             }
